@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brukerveiledning: Grunnleggende nettverk & feilsøking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="card">
+      <h2>Hva dette dekker</h2>
+      <p>Dette er en enkel, praktisk guide for brukere og teknisk støtte: hvordan koble til nettverk (Wi-Fi / kabel), forstå IP-adresse, og feilsøke vanlige problemer (ingen internett, dårlig hastighet, ingen DHCP-adresse).</p>
+    </div>
+
+    <div class="card">
+      <h2>1) Grunnleggende begreper (kort)</h2>
+      <ul>
+        <li><strong>IP-adresse:</strong> En adresse på nettverket (f.eks. 192.168.1.12).</li>
+        <li><strong>DHCP:</strong> Tjenesten som gir PC-er en IP-adresse automatisk.</li>
+        <li><strong>DNS:</strong> Oversetter domenenavn (f.eks. google.no) til IP-adresser.</li>
+        <li><strong>Gateway:</strong> Ruteren som kobler lokalt nettverk til internett (f.eks. 192.168.1.1).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>2) Hvordan koble til Wi-Fi (Windows 10/11)</h2>
+      <ol>
+        <li>Klikk på nettverksikonet nede til høyre i oppgavelinjen.</li>
+        <li>Finn nettverket i listen — klikk «Koble til».</li>
+        <li>Skriv inn passord (nøkkel) — trykk «Neste».</li>
+        <li>Velg «Ja» eller «Nei» for å la PC være synlig i nettverket (velg Nei for offentlige nettverk).</li>
+      </ol>
+      <div class="tips"><strong>Tips:</strong> Sjekk at Caps Lock ikke er på når du skriver passord. Hvis du ikke ser nettverket, prøv å slå Wi-Fi av og på.</div>
+    </div>
+
+    <div class="card">
+      <h2>3) Hvordan koble med kabel (Ethernet)</h2>
+      <ol>
+        <li>Sørg for at kabelen sitter godt i PC og i ruter eller veggkontakt.</li>
+        <li>Åpne <em>Innstillinger → Nettverk og Internett</em> og sjekk at status viser «Tilkoblet».</li>
+        <li>Hvis det står «Ingen nettverkstilgang», sjekk IP-adresse (se neste avsnitt).</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>4) Sjekk IP-adresse og nettverksstatus (Windows)</h2>
+      <p>Bruk kommandolinjen for rask info:</p>
+      <pre>1) Åpne Kommandoprompt (trykk Windows, skriv cmd, Enter)
+2) Skriv: ipconfig /all
+3) Skriv: ping 8.8.8.8
+4) Skriv: ping www.google.com</pre>
+      <p><strong>Tolkning:</strong></p>
+      <ul>
+        <li>Hvis ipconfig viser 169.254.x.x → PC får ikke DHCP-adresse.</li>
+        <li>Hvis ping 8.8.8.8 fungerer, men ping google.com feiler → DNS-problem.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>5) Rask feilsøkingsflyt</h2>
+      <div class="flow">
+        1. Er kabel/Wi-Fi fysisk OK? → Ja: gå videre.<br>
+        2. Får du IP (ipconfig)? → Nei: restart ruter/PC.<br>
+        3. Kan du pinge gateway (192.168.1.1)? → Nei: ruter/port-problem.<br>
+        4. Pinge 8.8.8.8 OK, men DNS feiler → bytt til Google DNS.<br>
+        5. Alt feiler → sjekk om andre enheter har internett.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Løsninger — nyttige kommandoer</h2>
+      <pre>
+netsh winsock reset
+netsh int ip reset
+ipconfig /release
+ipconfig /renew
+ipconfig /flushdns
+      </pre>
+      <p>Restart PC etterpå for å bruke endringene.</p>
+    </div>
+
+    <div class="card">
+      <h2>7) Sikkerhet ved nettverk</h2>
+      <ul>
+        <li>Bruk WPA2/WPA3 og sterkt passord på Wi-Fi.</li>
+        <li>Bruk gjestenett for gjester i stedet for hovednettverket.</li>
+        <li>Hold ruterprogramvaren oppdatert.</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>
